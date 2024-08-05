@@ -7,8 +7,21 @@ endif()
 
 project("voxel-raytracer" VERSION 0.1.0 LANGUAGES C CXX)
 
+add_subdirectory(deps/glfw)
+add_subdirectory(deps/glm)
+add_subdirectory(deps/spdlog)
+
+find_package(Vulkan REQUIRED)
+
 add_executable(${PROJECT_NAME}
 	"src/main.cpp"
+)
+
+target_link_libraries(${PROJECT_NAME} PRIVATE
+	glfw
+	glm::glm
+	spdlog::spdlog
+	Vulkan::Vulkan
 )
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
