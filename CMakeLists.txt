@@ -14,6 +14,7 @@ find_package(Vulkan REQUIRED)
 
 add_executable(${PROJECT_NAME}
 	"src/main.cpp"
+    "src/extensions.cpp"
 )
 
 target_link_libraries(${PROJECT_NAME} PRIVATE
